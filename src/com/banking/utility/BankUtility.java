@@ -25,29 +25,34 @@ public class BankUtility {
 				customerServiceImpl.createCustomer();
 				break;
 			case 2:
-				System.out.println("Enter Customer Id");
+				System.out.println("Enter Customer id 100:");
 				int customerId = scanner.nextInt();
+				for (Customer customerAccount : CustomerList.customerList) {
+					if (customerAccount.getCustomerId() == customerId) {
+						while (flag) {
 
-				while (flag) {
+							System.out.println("Enter the choice\n1.Create Account\n2.Deposit Amount\n3.Withdrawal Amount\n4.Display Accounts\n5.Exit");
+							int existingCustomerChoice = scanner.nextInt();
+							if (existingCustomerChoice == 1) {
+								accountServiceImpl.createAccount(customerId);
+							} else if (existingCustomerChoice == 2) {
+								accountServiceImpl.depositAmount(customerId);
+							} else if (existingCustomerChoice == 3) {
+								accountServiceImpl.withDrawAmount(customerId);
+							} else if (existingCustomerChoice == 4) {
+								accountServiceImpl.displayAccounts(customerId);
+							}else if(existingCustomerChoice == 5) {
+								
+								System.exit(0);
+							}else {
+								System.out.println("Invaild Entry");
 
-					System.out.println("Enter the choice\n1.Create Account\n2.Deposit Amount\n3.Withdrawal Amount\n4.Display Accounts\n5.Exit");
-					int existingCustomerChoice = scanner.nextInt();
-					if (existingCustomerChoice == 1) {
-						accountServiceImpl.createAccount(customerId);
-					} else if (existingCustomerChoice == 2) {
-						accountServiceImpl.depositAmount(customerId);
-					} else if (existingCustomerChoice == 3) {
-						accountServiceImpl.withDrawAmount(customerId);
-					} else if (existingCustomerChoice == 4) {
-						accountServiceImpl.displayAccounts(customerId);
-					}else if(existingCustomerChoice == 5) {
-						
-						System.exit(0);
-					}else {
-						System.out.println("Invaild Entry");
-
-					}
+							}
+						}
 				}
+				
+
+			
 				break;
 
 			
@@ -56,4 +61,5 @@ public class BankUtility {
 		}
 	}
 
+}
 }

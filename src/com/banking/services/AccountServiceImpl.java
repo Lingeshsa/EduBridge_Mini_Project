@@ -122,7 +122,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public void displayAccounts(int customerId) {
-		System.out.printf("%-10s %-15s %-30s %-20s %-15s %-15s \n", "Account Code", "First Name", "Account Type",
+		System.out.printf("%-10s %-15s %-30s %-20s %-15s %-15s \n", "Account Code", "Name", "Account Type",
 				"Opening Date", "Balance", "Freelimit");
 
 		for (Customer customerAccount : CustomerList.customerList) {
